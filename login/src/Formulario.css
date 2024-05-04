@@ -4,7 +4,11 @@
     align-items: start;
     width: 100%;
     width: 100vw;
+<<<<<<< Updated upstream
     background-color: #ffffff;
+=======
+    background-color: #ffb6b6;
+>>>>>>> Stashed changes
 }
 
 .formulario{
@@ -12,7 +16,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+<<<<<<< Updated upstream
     width: 20%;
+=======
+    width: 30%;
+>>>>>>> Stashed changes
     margin-top: 10%;
     background: rgb(28, 199, 252);
 }
