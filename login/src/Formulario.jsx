@@ -47,22 +47,24 @@ export function Formulario() {
                 <div className='container-form-input'>
                     <input className='container-form-input-username' id='1' placeholder='Usuario o correo' type="text" onChange={(e) => { setUsername(e.target.value) }} />
                     <input className='container-form-input-password' id='2' placeholder='Contraseña' type="password" onChange={(e) => { setPassword(e.target.value) }} />
-                    <label>
-                        <input className='container-form-checkbox' type='checkbox' />
+                    
+                    <label className='container-form-checkbox'>
+                        <input type='checkbox' />
                         Recuérdame
                     </label>
+
                     <button className='container-form-button' onClick={handleClickAdd} >Inicio</button>
+                    <a className="container-form-a" href='formulario.jsx'> ¿Olvidaste tu contraseña?</a>
                 </div>
-                <a href='formulario.jsx'> ¿Olvidaste tu contraseña?</a>
             </form>
 
             <div className='container-welcometext'>
                 <h2 className='container-welcometext-h2'> LLEGASTE AL LUGAR INDICADO</h2>
                 <p className='container-welcometext-p'>¡En <span>Rippio</span> cuentas con más de 1000 establecimientos verificados por nuestro personal para elegir!</p>
-                <p className='container-welcometext-a'>¿Aún no tienes una cuenta? <a href='formulario.jsx'>¡Registrate!</a></p>
+                <p className='container-welcometext-a'>¿Aún no tienes una cuenta? <a href='formulario.jsx'> <span>¡</span>Registrate<span>!</span></a></p>
             </div>
 
-            <div className='container-sideline'> </div>
+            <div className='container-sideline'></div>
         </div>
     );
 }
