@@ -1,24 +1,37 @@
-.contenedor{
-    display: flex;
-    justify-content: space-around;
-    align-items: start;
-    width: 100%;
-    width: 100vw;
-    background-color: #ffb6b6;
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-image: url("/form_background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-.formulario{
+.container{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 30%;
-    margin-top: 10%;
-    background: rgb(28, 199, 252);
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.664);
+    
 }
 
-.users-container{
-    width: 50%;
-    display: flex;
-    flex-wrap: wrap;
+.container-form{
+    border: 3px solid #01CBC3;
+    border-radius: 20px;
+
+}
+
+.container-form-h1{
+    color: #01CBC3;
+}
+
+.container-form-input input{
+    width: 300px;
+    padding: 10px 5px;
+    margin: 10px;
+    border: none;
+    border-bottom: 2px solid white;
+    background-color: transparent;
 }

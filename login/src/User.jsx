@@ -10,7 +10,6 @@ export function User({ nombre, apellido, edad }) {
         <div className='user'>
             <h2>Nombre : {nombre}</h2>
             <h2>Apellido : {apellido}</h2>
-            <h2>Edad : {edad}</h2>
         </div>
     );
 }

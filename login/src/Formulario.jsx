@@ -6,44 +6,33 @@ import { User } from './User';
 
 
 export function Formulario() {
-    const [nombre, setNombre] = useState('')
-    const [apellido, setApellido] = useState('')
-    const [edad, setEdad] = useState('')
+    const [username, setusername] = useState('')
+    const [password, setpassword] = useState('')
     const [users, setUsers] = useState([])
     const [show, setShow] = useState(false)
 
     const handleClickAdd = () => {
-        if (nombre === '' || apellido === '' || edad === '') {
+        if (username === '' || password === '') {
             document.getElementById('1').placeholder = 'Campo requerido'
             document.getElementById('2').placeholder = 'Campo requerido'
-            document.getElementById('3').placeholder = 'Campo requerido'
             setTimeout(() => {
-                document.getElementById('1').placeholder = 'Nombre'
-                document.getElementById('2').placeholder = 'Apellido'
-                document.getElementById('3').placeholder = 'Edad'
+                document.getElementById('1').placeholder = 'username'
+                document.getElementById('2').placeholder = 'password'
             }, 2000)
             return
         }
-        if (nombre.length < 3 || apellido.length < 3) {
+        if (username.length < 3 || password.length < 3) {
             document.getElementById('1').value = ''
             document.getElementById('2').value = ''
-            document.getElementById('1').placeholder = 'Nombre muy corto'
-            document.getElementById('2').placeholder = 'Apellido muy corto'
+            document.getElementById('1').placeholder = 'Usuario muy corto'
+            document.getElementById('2').placeholder = 'Contraseña muy corta'
             setTimeout(() => {
-                document.getElementById('1').placeholder = 'Nombre'
-                document.getElementById('2').placeholder = 'Apellido'
+                document.getElementById('1').placeholder = 'username'
+                document.getElementById('2').placeholder = 'password'
             }, 2000)
             return
         }
-        if (edad < 18) {
-            document.getElementById('3').value = ''
-            document.getElementById('3').placeholder = 'Debes ser mayor de edad'
-            setTimeout(() => {
-                document.getElementById('3').placeholder = 'Edad'
-            }, 2000)
-            return
-        }
-        setUsers([...users, { nombre, apellido, edad }])
+        setUsers([...users, { username, password}])
         console.log(users)
     }
 
@@ -52,24 +41,28 @@ export function Formulario() {
     }
 
     return (
-        <div className='contenedor'>
-            <div className='formulario'>
-                <h2>Ingresa tus datos</h2>
-                <input id='1' placeholder='nombre' type="text" onChange={(e) => { setNombre(e.target.value) }} />
-                <input id='2' placeholder='apellido' type="text" onChange={(e) => { setApellido(e.target.value) }} />
-                <input id='3' placeholder='edad' type="number" onChange={(e) => { setEdad(e.target.value) }} />
+        <div className='container'>
+            <form className='container-form'>
+                <h1 className='container-form-h1'>Inicia Sesión</h1>
+                <div className='container-form-input'>
+                    <input className='container-form-input-username' id='1' placeholder='Usuario o correo' type="text" onChange={(e) => { setUsername(e.target.value) }} />
+                    <input className='container-form-input-password' id='2' placeholder='Contraseña' type="password" onChange={(e) => { setPassword(e.target.value) }} />
+                    <label>
+                        <input className='container-form-checkbox' type='checkbox' />
+                        Recuérdame
+                    </label>
+                    <button className='container-form-button' onClick={handleClickAdd} >Inicio</button>
+                </div>
+                <a href='formulario.jsx'> ¿Olvidaste tu contraseña?</a>
+            </form>
 
-                <button onClick={handleClickAdd} >Agregar Usuario</button>
-                <button onClick={handleClickShow} >Mostrar Usuarios</button>
+            <div className='container-welcometext'>
+                <h2 className='container-welcometext-h2'> LLEGASTE AL LUGAR INDICADO</h2>
+                <p className='container-welcometext-p'>¡En <span>Rippio</span> cuentas con más de 1000 establecimientos verificados por nuestro personal para elegir!</p>
+                <p className='container-welcometext-a'>¿Aún no tienes una cuenta? <a href='formulario.jsx'>¡Registrate!</a></p>
             </div>
-            <div className='users-container'>
-            {show ?
-                users.map((user, index) => {
-                    return <User key={index} nombre={user.nombre} apellido={user.apellido} edad={user.edad} />
-                })
-                : <h2>no visibles</h2>
-            }
-            </div>
+
+            <div className='container-sideline'> </div>
         </div>
     );
 }
